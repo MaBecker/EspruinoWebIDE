@@ -12,17 +12,19 @@
 "use strict";
 (function(){
 
-  Espruino.Core.App.addIcon({ 
-    id: "sendTime",
-    icon: "star",
-    title : "Send the current Time and Timezone", 
-    order: 300,
-    area: { 
-      name: "code",
-      position: "bottom"
-    },
-    click: sendTime
-  });
+  function init() {
+    Espruino.Core.App.addIcon({ 
+      id: "sendTime",
+      icon: "star",
+      title : "Send the current Time and Timezone", 
+      order: 300,
+      area: { 
+        name: "code",
+        position: "bottom"
+      },
+      click: sendTime
+    });
+  }
 
   function sendTime() {
     var time = new Date();
@@ -33,7 +35,7 @@
     });
   }
 
-  Espruino.Plugins.ExamplePlugin = {
+  Espruino.Plugins.sendTime = {
     init : init,
   };
 }());
