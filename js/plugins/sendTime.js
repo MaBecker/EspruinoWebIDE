@@ -6,7 +6,7 @@
  file, You can obtain one at http://mozilla.org/MPL/2.0/.
  
  ------------------------------------------------------------------
-  An Button that send tine and timezone
+  An Button to send time and timezone
  ------------------------------------------------------------------
 **/
 "use strict";
@@ -16,7 +16,7 @@
     Espruino.Core.App.addIcon({ 
       id: "sendTime",
       icon: "star",
-      title : "Send current Time and Timezone",
+      title : "Send current time and timezone",
       order: 300,
       area: { 
         name: "code",
