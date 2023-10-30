@@ -31,7 +31,7 @@
     var code = "setTime("+(time.getTime()/1000)+");E.setTimeZone("+(-time.getTimezoneOffset()/60)+")";
 
     Espruino.Core.Serial.write(`\x03\x10${code}\n`, false, function() {
-      Espruino.Core.Notifications.success(`Send time and timezome`, true);
+      Espruino.Core.Notifications.success(`Send current time and timezome`, true);
     });
   }
 
