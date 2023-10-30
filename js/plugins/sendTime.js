@@ -16,7 +16,7 @@
     Espruino.Core.App.addIcon({ 
       id: "sendTime",
       icon: "star",
-      title : "Send the current Time and Timezone", 
+      title : "Send current Time and Timezone",
       order: 300,
       area: { 
         name: "code",
@@ -31,11 +31,11 @@
     var code = "setTime("+(time.getTime()/1000)+");E.setTimeZone("+(-time.getTimezoneOffset()/60)+")";
 
     Espruino.Core.Serial.write(`\x03\x10${code}\n`, false, function() {
-      Espruino.Core.Notifications.success(`Sen­t the time and timezome`, true);
+      Espruino.Core.Notifications.success(`Send time and timezome`, true);
     });
   }
 
   Espruino.Plugins.sendTime = {
-    init : init,
+    init : init
   };
 }());
