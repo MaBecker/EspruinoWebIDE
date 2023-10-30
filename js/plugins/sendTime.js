@@ -19,7 +19,7 @@
       section : "General",
       name : "Show Send Time Icon",
       description : "Show an icon that will send time and timezone",type : "boolean",
-      defaultValue : false, 
+      defaultValue : false,
       onChange : function(newValue) { showIcon(newValue); }
     });
 
@@ -30,7 +30,7 @@
     if (show) {
       icon = Espruino.Core.App.addIcon({ 
         id: "sendTime",
-        icon: "star",
+        icon: "clock",
         title : "Send current time and timezone",
         order: 300,
         area: {
