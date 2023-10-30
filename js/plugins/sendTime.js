@@ -4,7 +4,7 @@
  This Source Code is subject to the terms of the Mozilla Public
  License, v2.0. If a copy of the MPL was not distributed with this
  file, You can obtain one at http://mozilla.org/MPL/2.0/.
- 
+
  ------------------------------------------------------------------
   An Button to send time and timezone
  ------------------------------------------------------------------
@@ -12,18 +12,36 @@
 "use strict";
 (function(){
 
+  var icon;
+
   function init() {
-    Espruino.Core.App.addIcon({ 
-      id: "sendTime",
-      icon: "star",
-      title : "Send current time and timezone",
-      order: 300,
-      area: { 
-        name: "code",
-        position: "bottom"
-      },
-      click: sendTime
+    Espruino.Core.Config.add("SHOW_SEND_TIME_ICON", {
+      section : "General",
+      name : "Show Send Time Icon",
+      description : "Show an icon that will send time and timezone",type : "boolean",
+      defaultValue : false, 
+      onChange : function(newValue) { showIcon(newValue); }
     });
+
+    showIcon(Espruino.Config.SHOW_SEND_TIME_ICON);
+  }
+
+  function showIcon(show) {
+    if (show) {
+      icon = Espruino.Core.App.addIcon({ 
+        id: "sendTime",
+        icon: "star",
+        title : "Send current time and timezone",
+        order: 300,
+        area: {
+          name: "code",
+          position: "bottom"
+        },
+        click: sendTime
+      });
+    } else {
+      if (icon!==undefined) icon.remove();
+    }
   }
 
   function sendTime() {
@@ -36,6 +54,6 @@
   }
 
   Espruino.Plugins.sendTime = {
-    init : init
+    init : init,
   };
 }());
