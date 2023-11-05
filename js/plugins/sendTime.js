@@ -30,7 +30,7 @@
     if (show) {
       icon = Espruino.Core.App.addIcon({ 
         id: "sendTime",
-        icon: "star",
+        icon: "ui-icon-clock",
         title : "Send current time and timezone",
         order: 300,
         area: {
